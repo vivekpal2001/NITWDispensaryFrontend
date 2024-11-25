@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor - Medical Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+
+                <div class="logo"> <i class='bx bx-pulse'></i>Astha</div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+                <button class="cta-button"><a style="text-decoration:none; color:#f2f7f6" onclick="openNewContactModal()">Login</a></button>
+                <div id="newContactModal" class="modal">
+                    <div class="modal-content">
+                        <h1>Who are you ?</h1>
+                        <span class="close">&times;</span>
+                            <button id="addContactButton"><a style="text-decoration: none; color:black" href="../signinSignup/adminSignIn.html">Admin</a></button>
+                            <button id="addContactButton"><a style="text-decoration: none; color:black" href="../DoctorSignUp/index.html">Doctor</a></button>
+                            <button id="addContactButton"><a style="text-decoration: none; color:black" href="../signinSignup/index.html">Patient</a></button>
+                    
+                    
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Take care of your body and it will take care of you.</h1>
+                        <p>Talk with our licensed online Consultants. Our line is open 24/7 at very cheap rates.</p>
+                        <button  class="cta-button"><a style="text-decoration:none; color:#f2f7f6;" href="../signinSignup/index.html">Book Your Appointment</a></button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./hero.gif" alt="Doctors">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why you should trust us?</h2>
+                    <p>Get know about us</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <i class="fas fa-user-md"></i>
+                        <h3>All Specialist</h3>
+                        <p>You can get all specialist doctors in our platform</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h3>Private & Secure</h3>
+                        <p>All your data is safe and secure with us</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Million Customers</h3>
+                        <p>We have served millions of satisfied customers</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Our support team is available round the clock</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-wrapper">
+            <section class="banner">
+                <div class="banner-content">
+                    <h1>Latest News & Blog</h1>
+                    <p>Stay informed with the latest medical updates and health tips.</p>
+                </div>
+                <div class="banner-image">
+                    <img src="./signup.gif" alt="Doctor">
+                </div>
+            </section>
+
+            <section class="blog-section">
+                <div class="blog-cards">
+                    <div class="card">
+                        <img src="Patient.jpeg" alt="Blog 1">
+                        <div class="card-content">
+                            <h3>Elevating Patient Safety Through Technology</h3>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="medai.jpeg" alt="Blog 2">
+                        <div class="card-content">
+                            <h3>Medical AI Ethics: Balancing Innovation and Care</h3>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="diet.jpeg" alt="Blog 3">
+                        <div class="card-content">
+                            <h3>How Diet Impacts Mental Health: New Study</h3>
+                            <a href="#" class="btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedback-section">
+                <h2>Patients Feedback</h2>
+                <div class="feedback-cards">
+                    <div class="card feedback-card">
+                        <img src="Patient1.jpeg" alt="Patient 1">
+                        <div>
+                            <h4>Dr. Schwarzenegger</h4>
+                            <p>Great experience, very professional staff!</p>
+                        </div>
+                    </div>
+                    <div class="card feedback-card">
+                        <img src="Patient2.jpeg" alt="Patient 2">
+                        <div>
+                            <h4>Patient Roberts</h4>
+                            <p>Excellent care and attention to detail.</p>
+                        </div>
+                    </div>
+                    <div class="card feedback-card">
+                        <img src="Patient3.jpeg" alt="Patient 3">
+                        <div>
+                            <h4>Senator Johnson</h4>
+                            <p>Highly recommend this medical center!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

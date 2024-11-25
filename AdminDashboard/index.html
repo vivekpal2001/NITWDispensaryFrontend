@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>ASTHA</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+         :root {
+            --poppins: "Poppins", sans-serif;
+            --lato: "Lato", sans-serif;
+            --light: #f9f9f9;
+            --blue: #4CAF4F;
+            --green: #79c490;
+            --light-blue: #cfe8ff;
+            --grey: #eee;
+            --dark-grey: #aaaaaa;
+            --dark: #342e37;
+            --red: #db504a;
+            --yellow: #ffce26;
+            --light-yellow: #fff2c6;
+            --orange: #fd7238;
+            --light-orange: #ffe0d3;
+        }
+        
+        html {
+            overflow-x: hidden;
+        }
+        
+        body.dark {
+            --light: #0c0c1e;
+            --grey: #060714;
+            --dark: #fbfbfb;
+        }
+        
+        body {
+            background: var(--grey);
+            overflow-x: hidden;
+        }
+        
+        #content nav {
+            height: 56px;
+            background: var(--light);
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            grid-gap: 24px;
+            font-family: var(--lato);
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        #content nav::before {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            bottom: -40px;
+            left: 0;
+            border-radius: 50%;
+            box-shadow: -20px -20px 0 var(--light);
+        }
+        
+        #content nav a {
+            color: var(--dark);
+        }
+        
+        #content nav .bx.bx-menu {
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        #content nav .nav-link {
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+        
+        #content nav .nav-link:hover {
+            color: var(--blue);
+        }
+        
+        #content nav form {
+            max-width: 400px;
+            width: 100%;
+            margin-right: auto;
+        }
+        
+        #content nav form .form-input {
+            display: flex;
+            align-items: center;
+            height: 36px;
+        }
+        
+        #content nav form .form-input input {
+            flex-grow: 1;
+            padding: 0 16px;
+            height: 100%;
+            border: none;
+            background: var(--grey);
+            border-radius: 36px 0 0 36px;
+            outline: none;
+            width: 100%;
+            color: var(--dark);
+        }
+        
+        #content nav form .form-input button {
+            width: 36px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--blue);
+            color: var(--light);
+            font-size: 18px;
+            border: none;
+            outline: none;
+            border-radius: 0 36px 36px 0;
+            cursor: pointer;
+        }
+        
+        #content nav .notification {
+            font-size: 20px;
+            position: relative;
+        }
+        
+        #content nav .notification .num {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--light);
+            background: var(--red);
+            color: var(--light);
+            font-weight: 700;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #content nav .profile img {
+            width: 36px;
+            height: 36px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        #content nav .switch-mode {
+            display: block;
+            min-width: 50px;
+            height: 25px;
+            border-radius: 25px;
+            background: var(--grey);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        #content nav .switch-mode::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            width: calc(25px - 4px);
+            background: var(--blue);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        #content nav #switch-mode:checked+.switch-mode::before {
+            left: calc(100% - (25px - 4px) - 2px);
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: var(--blue);
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .greeting {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: var(--blue);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform var(--transition-speed);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-title {
+            font-size: 0.9rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .action-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+        
+        .action-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .chart-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .appointments {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .appointments h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .appointment-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: background-color var(--transition-speed);
+        }
+        
+        .appointment-item:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .appointment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--blue);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .appointment-details {
+            flex-grow: 1;
+        }
+        
+        .appointment-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-weight: bold;
+        }
+        
+        .btn-confirm {
+            background-color: var(--blue);
+            color: white;
+        }
+        
+        .btn-reschedule {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .btn-cancel {
+            background-color: var(--red);
+            color: white;
+        }
+        
+        .btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stat-card,
+        .action-card,
+        .chart-container,
+        .appointments {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bx-pulse'></i>
+            <span class="text">Astha</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="./index.html">
+                    <i class='bx bxs-home'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="./users.html">
+                    <i class='bx bx-user'></i>
+                    <span class="text">User</span>
+                </a>
+            </li>
+            
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="../Landingpage/index.html" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <h1>Home</h1>
+            <i class='bx bx-menu'></i>
+            <div class="header-right">
+                <i class="fas fa-envelope header-icon"></i>
+                <i class="fas fa-bell header-icon"></i>
+                <i class="fas fa-user-circle header-icon"></i>
+            </div>
+
+        </nav>
+        <!-- NAVBAR -->
+
+
+        <div class="main-content">
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">Total Patients</div>
+                    <div class="stat-value">1,248</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Today's Appointments</div>
+                    <div class="stat-value">28</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Completed Appointments</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Today's Revenue</div>
+                    <div class="stat-value">₹3,550</div>
+                </div>
+            </section>
+
+            <section class="chart-container">
+                <canvas id="patientChart"></canvas>
+            </section>
+
+            <section class="appointments">
+                <h3>Upcoming Appointments</h3>
+                <div id="appointmentsList"></div>
+            </section>
+        </div>
+
+
+    </section>
+    <!-- CONTENT -->
+
+    <script>
+        // Chart
+        var ctx = document.getElementById('patientChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'New Patients',
+                    data: [65, 59, 80, 81, 56, 55],
+                    borderColor: '#3498db',
+                    tension: 0.1,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'New Patients per Month'
+                    }
+                }
+            }
+        });
+
+    
+    function renderAppointments() {
+        const appointmentsList = document.getElementById('appointmentsList');
+        appointmentsList.innerHTML = appointments.map(app => `
+            <div class="appointment-item">
+                <div class="appointment-avatar">${app.name.charAt(0)}</div>
+                <div class="appointment-details">
+                    <strong>${app.name}</strong> - ${app.time}
+                    <br>
+                    <small>${app.reason}</small>
+                </div>
+                <div class="appointment-actions">
+                    <button class="btn btn-confirm" onclick="confirmAppointment(${app.id})">Confirm</button>
+                    <button class="btn btn-reschedule" onclick="rescheduleAppointment(${app.id})">Reschedule</button>
+                    <button class="btn btn-cancel" onclick="cancelAppointment(${app.id})">Cancel</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    renderAppointments();
+
+    // Confirm Appointment
+function confirmAppointment(id) {
+    alert(id);
+    axios.post(`https://medicare-backend-two.vercel.app/appointments/confirm/${id}`)
+        .then(response => {
+            alert(response.data.message);
+            // Optionally re-fetch appointments to update the UI
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Error confirming appointment');
+        });
+}
+
+// Cancel Appointment
+function cancelAppointment(id) {
+    axios.post(`https://medicare-backend-two.vercel.app/appointments/cancel/${id}`)
+        .then(response => {
+            alert(response.data.message);
+            // Optionally re-fetch appointments to update the UI
+        })
+        .catch(error => {
+            console.error(error);
+            alert('Error cancelling appointment');
+        });
+}
+
+// Reschedule Appointment
+function rescheduleAppointment(id) {
+    const newDate = prompt("Enter the new date for the appointment (YYYY-MM-DD):");
+    if (newDate) {
+        axios.post(`https://medicare-backend-two.vercel.app/appointments/reschedule/${id}`, { newDate })
+            .then(response => {
+                alert(response.data.message);
+                // Optionally re-fetch appointments to update the UI
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Error rescheduling appointment');
+            });
+    }
+}
+
+    // Helper function to update local appointment status
+    function updateLocalStatus(id, newStatus) {
+        const appointment = appointments.find(app => app.id === id);
+        if (appointment) {
+            appointment.status = newStatus;
+        }
+        renderAppointments(); // Rerender appointments to reflect changes
+    }
+
+    // Helper function to update local appointment time
+    function updateLocalAppointment(id, field, value) {
+        const appointment = appointments.find(app => app.id === id);
+        if (appointment) {
+            appointment[field] = value;
+        }
+        renderAppointments(); // Rerender appointments to reflect changes
+    }
+
+
+    </script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
