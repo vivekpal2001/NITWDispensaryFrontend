@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', () => {
 
 
 
-const API_URL = "https://medicare-backend-two.vercel.app";
+const API_URL = "https://nitw-dispensary-backend.vercel.app/";
 
 // Function to handle form submissions
 async function handleFormSubmit(event, type) {

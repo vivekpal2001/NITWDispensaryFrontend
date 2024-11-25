@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 patientSex: details.sex,
             };
 
-            const response = await axios.post('https://medicare-backend-two.vercel.app/patient/appointments', newAppointment);
+            const response = await axios.post('https://nitw-dispensary-backend.vercel.app/patient/appointments', newAppointment);
             if (response.status === 201) {
                 appointments.push(newAppointment);
                 // renderAppointments();
@@ -221,7 +221,7 @@ window.onload = function() {
 
     if (email) {
         // Fetch upcoming appointments
-        axios.get('https://medicare-backend-two.vercel.app/patient/getallappointments', {
+        axios.get('https://nitw-dispensary-backend.vercel.app/patient/getallappointments', {
             params: { email } // Send email as a query parameter
         })
         .then(response => {
