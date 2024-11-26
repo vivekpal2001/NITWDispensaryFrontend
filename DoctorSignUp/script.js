@@ -29,7 +29,7 @@ async function handleFormSubmit(event, type) {
         if (type === 'signin') {
             let url = `${API_URL}/doctor/signin`;
             const response = await axios.post(url, data);
-            console.log(response);
+            
             localStorage.setItem('email', response.data.email);
             localStorage.setItem('username', response.data.name);
             localStorage.setItem('id', response.data.id);

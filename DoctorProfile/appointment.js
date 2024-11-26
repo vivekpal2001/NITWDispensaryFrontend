@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchAppointments() {
         try {
-            const name = localStorage.getItem('name');
+            const name = localStorage.getItem('username');
             if (!name) {
                 throw new Error('Name not found in local storage');
             }
