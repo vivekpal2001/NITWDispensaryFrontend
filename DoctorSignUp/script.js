@@ -29,9 +29,13 @@ async function handleFormSubmit(event, type) {
         if (type === 'signin') {
             let url = `${API_URL}/doctor/signin`;
             const response = await axios.post(url, data);
-            // Handle success response for signup
+            console.log(response);
+            localStorage.setItem('email', response.email);
+            localStorage.setItem('username', response.name);
+            localStorage.setItem('id', response.id);
             alert("Signup Successful!");
-            window.location.href = '../DoctorProfile/index .html'; // Redirect to signin page after signup
+
+            window.location.href = '../DoctorProfile/appointment.html'; // Redirect to signin page after signup
         } else if (type === 'signup') {
             //let url = `${API_URL}/patient/signin`;
             const response = await axios.post(url, data);
