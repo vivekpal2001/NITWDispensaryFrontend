@@ -26,14 +26,14 @@ async function handleFormSubmit(event, type) {
     const data = Object.fromEntries(formData.entries());
 
     try {
-        if (type === 'signup') {
+        if (type === 'signin') {
             let url = `${API_URL}/doctor/signin`;
             const response = await axios.post(url, data);
             // Handle success response for signup
             alert("Signup Successful!");
             window.location.href = '../signinSignup/index.html'; // Redirect to signin page after signup
-        } else if (type === 'signin') {
-            let url = `${API_URL}/patient/signin`;
+        } else if (type === 'signup') {
+            //let url = `${API_URL}/patient/signin`;
             const response = await axios.post(url, data);
             // Handle success response for signin
             const { email, name, id } = response.data;
