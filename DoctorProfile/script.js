@@ -217,11 +217,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.onload = function() {
     // Retrieve email from localStorage
-    const email = localStorage.getItem('email');
+    const email = localStorage.getItem('username');
 
     if (email) {
         // Fetch upcoming appointments
-        axios.get('https://nitw-dispensary-backend.vercel.app/patient/getallappointments', {
+        axios.get('https://nitw-dispensary-backend.vercel.app/doctor/getappointments', {
             params: { email } // Send email as a query parameter
         })
         .then(response => {
