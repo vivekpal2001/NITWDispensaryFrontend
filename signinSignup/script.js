@@ -27,7 +27,7 @@ async function handleFormSubmit(event, type) {
 
     try {
         if (type === 'signup') {
-            let url = `${API_URL}/patient/signup`;
+            let url = `${API_URL}/patient/signin`;
             const response = await axios.post(url, data);
             // Handle success response for signup
             alert("Signup Successful!");

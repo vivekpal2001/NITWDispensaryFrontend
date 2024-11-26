@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', () => {
 
 
 
-const API_URL = "https://nitw-dispensary-backend.vercel.app/";
+const API_URL = "https://nitw-dispensary-backend.vercel.app";
 
 // Function to handle form submissions
 async function handleFormSubmit(event, type) {
@@ -27,7 +27,7 @@ async function handleFormSubmit(event, type) {
 
     try {
         if (type === 'signup') {
-            let url = `${API_URL}/patient/signup`;
+            let url = `${API_URL}/doctor/signin`;
             const response = await axios.post(url, data);
             // Handle success response for signup
             alert("Signup Successful!");
