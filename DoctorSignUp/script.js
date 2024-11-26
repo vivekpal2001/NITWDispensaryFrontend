@@ -31,7 +31,7 @@ async function handleFormSubmit(event, type) {
             const response = await axios.post(url, data);
             // Handle success response for signup
             alert("Signup Successful!");
-            window.location.href = '../signinSignup/index.html'; // Redirect to signin page after signup
+            window.location.href = '../DoctorProfile/index .html'; // Redirect to signin page after signup
         } else if (type === 'signup') {
             //let url = `${API_URL}/patient/signin`;
             const response = await axios.post(url, data);
@@ -43,7 +43,7 @@ async function handleFormSubmit(event, type) {
             localStorage.setItem('username', name);
             localStorage.setItem('id', id);
 
-            window.location.href = '/DoctorProfile/index .html'; // Redirect to main index page after signin
+            //window.location.href = '/DoctorProfile/index.html'; // Redirect to main index page after signin
         }
     } catch (error) {
         console.error('Error:', error);
