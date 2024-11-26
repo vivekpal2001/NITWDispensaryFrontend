@@ -217,12 +217,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.onload = function() {
     // Retrieve email from localStorage
-    const email = localStorage.getItem('username');
+    const name = localStorage.getItem('username');
 
-    if (email) {
+    if (name) {
         // Fetch upcoming appointments
         axios.get('https://nitw-dispensary-backend.vercel.app/doctor/getappointments', {
-            params: { email } // Send email as a query parameter
+            params: { name} // Send email as a query parameter
         })
         .then(response => {
             const appointments = response.data; // Assuming the response contains an array of appointment objects
