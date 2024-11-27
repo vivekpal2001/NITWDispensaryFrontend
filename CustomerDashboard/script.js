@@ -179,8 +179,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const newAppointment = {
                 email: localStorage.email,
-                doctor: doctors.name,
-                specialty: doctors.specialty,
+                doctor: doctor.name,
+                specialty: doctor.specialty,
                 date: details.date,
                 time: details.timeSlot,
                 patientName: details.name,
