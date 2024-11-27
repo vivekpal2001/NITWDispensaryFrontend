@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Fetching appointments for Name:', drname);
     
             const response = await axios.get('https://nitw-dispensary-backend.vercel.app/doctor/getappointments', {
-                name: drname
+                params: { name: drname }
             });
     
             console.log('Response status:', response.status);

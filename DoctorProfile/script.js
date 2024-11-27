@@ -223,7 +223,7 @@ window.onload = function() {
         // Fetch upcoming appointments
             // Fetch upcoming appointments
             axios.get('https://nitw-dispensary-backend.vercel.app/doctor/getappointments', {
-                 name: drname // Send doctor name as a query parameter
+                params: { name: drname } // Send doctor name as a query parameter
             })
     
         .then(response => {
