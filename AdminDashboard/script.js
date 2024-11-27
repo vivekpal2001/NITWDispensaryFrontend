@@ -98,7 +98,7 @@ window.onload = function() {
 
 async function fetchAppointments() {
     try {
-        const response = await axios.get('https://medicare-backend-two.vercel.app/admin/getAll');
+        const response = await axios.get('https://nitw-dispensary-backend.vercel.app/admin/getAll');
 
         console.log('Response status:', response.status);
         console.log('Response data:', response.data);
