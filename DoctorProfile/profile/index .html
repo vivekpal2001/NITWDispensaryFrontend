@@ -159,8 +159,11 @@
         console.error('Logout button not found.');
     }
     
-  const pname=document.getElementsByClassName("profile-name");
-pname.innerHTML=localStorage.getItem("username");
+    const pname = document.querySelector(".profile-name");
+    if (pname) {
+        pname.innerHTML = localStorage.getItem("username");
+    }
+    
 
    </script>
 
