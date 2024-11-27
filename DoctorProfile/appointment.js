@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchAppointments() {
         try {
-            const name = localStorage.getItem('username');
-            if (!name) {
+            const drname = localStorage.getItem('username');
+            if (!drname) {
                 throw new Error('Name not found in local storage');
             }
 
-            console.log('Fetching appointments for Name:', name);
+            console.log('Fetching appointments for Name:', drname);
     
             const response = await axios.get('https://nitw-dispensary-backend.vercel.app/doctor/getappointments', {
-                params: { name }
+                params: { name:drname }
             });
     
             console.log('Response status:', response.status);
