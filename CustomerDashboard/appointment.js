@@ -283,12 +283,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function addNewAppointment(doctorId, details) {
         try {
-            doctors.find(d => d.id == doctorId);
+            let doctor = doctors.find(d => d.id == doctorId);
 
             const newAppointment = {
                 email: localStorage.email,
-                doctor: doctors.name,
-                specialty: doctors.specialty,
+                doctor: doctor.name,
+                specialty: doctor.specialty,
                 date: details.date,
                 time: details.timeSlot,
                 patientName: details.name,
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             console.log(newAppointment);
-            
+
             const response = await axios.post('https://nitw-dispensary-backend.vercel.app/patient/appointments', newAppointment);
             if (response.status === 201) {
                 // Add the new appointment to the appointments array

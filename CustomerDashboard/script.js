@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function addNewAppointment(doctorId, details) {
         try {
-            doctors.find(d => d.id == doctorId);
+            let doctor = doctors.find(d => d.id == doctorId);
 
             const newAppointment = {
                 email: localStorage.email,
