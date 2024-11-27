@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const newAppointment = {
                 email: localStorage.email,
                 doctor: doctor.name,
-                specialty: doctor.specialty,
+                specialty: doctor.specialization,
                 date: details.date,
                 time: details.timeSlot,
                 patientName: details.name,

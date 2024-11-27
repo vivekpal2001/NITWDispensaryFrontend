@@ -283,12 +283,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function addNewAppointment(doctorId, details) {
         try {
-            let doctor = doctors.find(d => d.id == doctorId);
+            let doc = doctors.find(d => d.id == doctorId);
 
             const newAppointment = {
                 email: localStorage.email,
-                doctor: doctor.name,
-                specialty: doctor.specialty,
+                doctor: doc.name,
+                specialty: doc.specialization,
                 date: details.date,
                 time: details.timeSlot,
                 patientName: details.name,
