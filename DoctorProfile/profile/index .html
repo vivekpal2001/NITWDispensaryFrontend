@@ -62,7 +62,7 @@
                 <div class="card welcome">
                     <div>
                         <h2>Welcome Back</h2>
-                        <p>Dr Vivek</p>
+                        <p class="profile-name">Dr Vivek</p>
     
                     </div>
                     <img src="profile.gif" alt="Doctor">
@@ -159,6 +159,9 @@
         console.error('Logout button not found.');
     }
     
+  const pname=document.getElementsByClassName("profile-name");
+pname.innerHTML=localStorage.getItem("username");
+
    </script>
 
     <script src="script.js"></script>
