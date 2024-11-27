@@ -296,6 +296,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 patientSex: details.sex,
             };
 
+            console.log(newAppointment);
+            
             const response = await axios.post('https://nitw-dispensary-backend.vercel.app/patient/appointments', newAppointment);
             if (response.status === 201) {
                 // Add the new appointment to the appointments array
