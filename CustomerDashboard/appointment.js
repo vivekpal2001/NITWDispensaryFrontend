@@ -158,10 +158,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderDoctorList() {
         const doctors = [
-            { id: 1, name: "Dr. Mukesh", specialization: "Cardiology", image: "smith.jpg" },
-            { id: 2, name: "Dr. Ali", specialization: "Neurology", image: "johnson.jpg" },
-            { id: 3, name: "Dr. Nilu", specialization: "Orthopedics", image: "williams.jpg" },
-            { id: 4, name: "Dr. Meena", specialization: "Dermatology", image: "brown.jpg" },
+            { id: 1, name: "Dr. Sudhakar Reddy", specialization: "Cardiologist", image: "smith.jpg" },
+            { id: 2, name: "Dr. Hemanth Reddy", specialization: "Ophthalmologist", image: "johnson.jpg" },
+            { id: 3, name: "Dr. B. Jagadeesh Babu", specialization: "Psychiatrist", image: "williams.jpg" },
+            { id: 4, name: "Dr. B. Sandhya Rani", specialization: "Gynecologist", image: "brown.jpg" },
+            { id: 5, name: "Dr. J. Sowmya", specialization: "Pulmonologist", image: "brown.jpg" },
+            { id: 6, name: "Dr. G. Vidya Reddy", specialization: "Dermatologist", image: "brown.jpg" },
+            { id: 7, name: "Dr. P. Prathik", specialization: "Dental", image: "brown.jpg" },
+            { id: 8, name: "Dr. P. Sumanth", specialization: "Pediatrician", image: "brown.jpg" },
         ];
 
         doctorModal.innerHTML = `
