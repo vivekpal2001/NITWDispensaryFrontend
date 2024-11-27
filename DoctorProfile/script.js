@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="card-icon">
                     <i class='bx bx-calendar'></i>
                 </div>
-                <h3>${appointment.doctor} - ${appointment.specialty}</h3>
+                <h3>${appointment.patientName} - ${appointment.patientSex}</h3>
                 <p>Date: ${new Date(appointment.date).toLocaleDateString()}</p>
                 <p>Time: ${appointment.time}</p>
             `;
@@ -374,33 +374,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to render reports
-    function renderReports(appointments) {
-        reportContainer.innerHTML = ''; // Clear container
-
-        appointments.forEach(appointment => {
-            const card = document.createElement('div');
-            card.classList.add('card');
-
-            const hasReport = appointment.report ? true : false;
-
-            card.innerHTML = `
-                <div class="card-icon">
-                    <i class='bx bx-file'></i>
-                </div>
-                <h3>Report</h3>
-                <p>Date: ${new Date(appointment.date).toLocaleDateString()}</p>
-                <button class="view-report">${hasReport ? 'View Report' : 'No Report Available'}</button>
-            `;
-
-            const viewButton = card.querySelector('.view-report');
-            if (hasReport) {
-                viewButton.onclick = () => window.open(appointment.report, '_blank');
-            } else {
-                viewButton.onclick = () => alert('No report available for this appointment.');
-            }
-
-            reportContainer.appendChild(card);
-        });
-    }
 });
