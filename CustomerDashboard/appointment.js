@@ -282,10 +282,14 @@ document.addEventListener('DOMContentLoaded', function() {
     async function addNewAppointment(doctorId, details) {
         try {
             const doctor = [
-                { id: 1, name: "Dr. Mukesh", specialty: "Cardiology" },
-                { id: 2, name: "Dr. Ali", specialty: "Neurology" },
-                { id: 3, name: "Dr. Nilu", specialty: "Orthopedics" },
-                { id: 4, name: "Dr. Meena", specialty: "Dermatology" },
+                { id: 1, name: "Dr. Sudhakar Reddy", specialization: "Cardiologist", image: "smith.jpg" },
+            { id: 2, name: "Dr. Hemanth Reddy", specialization: "Ophthalmologist", image: "johnson.jpg" },
+            { id: 3, name: "Dr. B. Jagadeesh Babu", specialization: "Psychiatrist", image: "williams.jpg" },
+            { id: 4, name: "Dr. B. Sandhya Rani", specialization: "Gynecologist", image: "brown.jpg" },
+            { id: 5, name: "Dr. J. Sowmya", specialization: "Pulmonologist", image: "brown.jpg" },
+            { id: 6, name: "Dr. G. Vidya Reddy", specialization: "Dermatologist", image: "brown.jpg" },
+            { id: 7, name: "Dr. P. Prathik", specialization: "Dental", image: "brown.jpg" },
+            { id: 8, name: "Dr. P. Sumanth", specialization: "Pediatrician", image: "brown.jpg" },
             ].find(d => d.id == doctorId);
 
             const newAppointment = {
