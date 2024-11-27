@@ -473,7 +473,7 @@ body {
 }
 
 .banner-image img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     border-radius: 12px;
     transition: transform 0.4s ease;
