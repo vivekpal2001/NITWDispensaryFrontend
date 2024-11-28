@@ -259,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             ${availableDates.map(date => `<option value="${date}">${date}</option>`).join('')}
                         </select>
                     </div>
-                    <p class="charges">Fixed Charges: Rs.200</p>
                     <button type="submit" class="submit-btn">Book Appointment</button>
                 </form>
             </div>
