@@ -233,7 +233,7 @@ window.onload = function() {
             appointmentContainer.innerHTML = '';
             reportContainer.innerHTML = '';
 
-            // Get today's date to filter upcoming appointments
+            // Get today's date to filter upcoming appointments`
             const today = new Date();
 
             // Filter upcoming appointments

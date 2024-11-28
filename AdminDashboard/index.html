@@ -540,7 +540,7 @@
     // Confirm Appointment
 function confirmAppointment(id) {
     alert(id);
-    axios.post(`https://medicare-backend-two.vercel.app/appointments/confirm/${id}`)
+    axios.post(`https://nitw-dispensary-backend.vercel.app/appointments/confirm/${id}`)
         .then(response => {
             alert(response.data.message);
             // Optionally re-fetch appointments to update the UI
@@ -553,7 +553,7 @@ function confirmAppointment(id) {
 
 // Cancel Appointment
 function cancelAppointment(id) {
-    axios.post(`https://medicare-backend-two.vercel.app/appointments/cancel/${id}`)
+    axios.post(`https://nitw-dispensary-backend.vercel.app/appointments/cancel/${id}`)
         .then(response => {
             alert(response.data.message);
             // Optionally re-fetch appointments to update the UI
@@ -568,7 +568,7 @@ function cancelAppointment(id) {
 function rescheduleAppointment(id) {
     const newDate = prompt("Enter the new date for the appointment (YYYY-MM-DD):");
     if (newDate) {
-        axios.post(`https://medicare-backend-two.vercel.app/appointments/reschedule/${id}`, { newDate })
+        axios.post(`https://nitw-dispensary-backend.vercel.app/appointments/reschedule/${id}`, { newDate })
             .then(response => {
                 alert(response.data.message);
                 // Optionally re-fetch appointments to update the UI
